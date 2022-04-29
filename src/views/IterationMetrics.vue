@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <filters :withIteration="true" />
-    <v-card flat align="center">
+    <v-card flat align="center" color="transparent">
       <v-row class="my-2" align="center" justify="center">
         <BugsDetail />
         <TimesDetail />

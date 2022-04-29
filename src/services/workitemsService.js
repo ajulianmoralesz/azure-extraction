@@ -89,6 +89,29 @@ async function getBugsIteration(project, team, iteration){
     })
 }
 
+async function getPbiIteration(project, team, iteration){
+    let body = {
+        query: `Select [System.Id] From WorkItems Where [System.WorkItemType] = 'Product Backlog Item'  
+        AND [System.AreaPath] = '${project}\\${team}' AND 
+        [System.IterationPath] = '${project}\\${iteration}'`
+    }
+    return await axiosHelper.request()
+    .post(`${project}/${team}/_apis/wit/wiql?api-version=6.0`, body)
+    .then(async function(response){
+        return await Promise.all(
+
+            response.data.workItems.map(async (x) => {
+                return await getWorkItemDetail(x.url)
+            })
+
+        );
+    })
+    .catch(function(e){
+        console.warn(e);
+        return [];
+    })
+}
+
 async function getWorkItemDetail(url){
     let myUrl = url.replace(process.env.VUE_APP_APIURL, '/')
     return await axiosHelper.request()
@@ -107,5 +130,6 @@ export default{
     getTasks,
     getTasksIteration,
     getBugsIteration,
-    getBugs
+    getBugs,
+    getPbiIteration
 }

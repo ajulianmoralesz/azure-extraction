@@ -41,6 +41,7 @@ export default {
   name: "Filters",
   props: {
     withIteration: Boolean,
+    pbiReport: Boolean,
   },
   data() {
     return {
@@ -84,8 +85,12 @@ export default {
         team: this.team.name,
         iteration: this.iteration.name,
       };
-      this.$store.dispatch("getBugsIteration", info);
-      this.$store.dispatch("getTasksIteration", info);
+      if (this.pbiReport) {
+        this.$store.dispatch("getPbisIteration", info);
+      } else {
+        this.$store.dispatch("getBugsIteration", info);
+        this.$store.dispatch("getTasksIteration", info);
+      }
     },
   },
 };

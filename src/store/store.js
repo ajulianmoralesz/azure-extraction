@@ -9,6 +9,7 @@ import team from "./modules/team"
 import iteration from "./modules/iteration"
 import bug from './modules/bug.js'
 import task from './modules/task'
+import pbi from './modules/pbi'
 
 Vue.use(Vuex);
 export const store = new Vuex.Store({
@@ -21,6 +22,7 @@ export const store = new Vuex.Store({
     team: team,
     iteration: iteration,
     bug : bug,
-    task : task
+    task : task,
+    pbi : pbi
   }
 })

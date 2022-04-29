@@ -27,6 +27,12 @@
         </v-list-item-icon>
         <v-list-item-title>Analisis Historico</v-list-item-title>
       </v-list-item>
+            <v-list-item link @click="$router.push('/pbireport')" dark>
+        <v-list-item-icon>
+          <v-icon>mdi-file-table-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>Reporte PBI</v-list-item-title>
+      </v-list-item>
     </v-list>
 
     <template v-slot:append>

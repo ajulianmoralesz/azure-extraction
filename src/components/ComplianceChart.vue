@@ -1,7 +1,7 @@
 <template>
   <v-card v-if="complianceChart !== null" class="mx-auto">
     <v-card-title class="white--text py-1" :class="getColor()">
-      Cumplimiento (%)
+      Cumplimiento
       <v-spacer></v-spacer>
       <v-icon color="white">mdi-check-decagram</v-icon>
     </v-card-title>
@@ -60,8 +60,29 @@ export default {
             show: false,
           },
         },
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            dataLabels: {
+              position: "top", // top, center, bottom
+            },
+          },
+        },
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          formatter: function (val) {
+            return (
+              val.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }) + "%"
+            );
+          },
+          offsetY: -20,
+          style: {
+            fontSize: "12px",
+            colors: ["#BDBDBD"],
+          },
         },
         labels: this.getLabels(),
         xaxis: {
@@ -72,7 +93,7 @@ export default {
         },
         colors: [
           function ({ value }) {
-            if (value > 80) {
+            if (value >= 80) {
               return "#8BC34A";
             } else if (value >= 70 && value < 80) {
               return "#FFC107";
@@ -81,8 +102,11 @@ export default {
             }
           },
         ],
-        yaxis: {
+        yaxis: {          
           labels: {
+            style: {
+              colors: "#BDBDBD"
+            },
             formatter: function (value) {
               return parseFloat(value).toFixed(2) + "%";
             },
@@ -90,6 +114,7 @@ export default {
         },
         tooltip: {
           enabled: true,
+          theme: "dark"
         },
         legend: {
           show: true,

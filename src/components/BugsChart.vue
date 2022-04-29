@@ -45,12 +45,22 @@ export default {
       return {
         chart: {
           background: "transparent",
-          toolbar:{
-            show: false
-          }
+          toolbar: {
+            show: false,
+          },
         },
         dataLabels: {
           enabled: false,
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: "#BDBDBD",
+            },
+            formatter: function (value) {
+              return parseFloat(value).toFixed(0) + " bugs";
+            },
+          },
         },
         labels: this.getLabels(),
         xaxis: {
@@ -61,10 +71,14 @@ export default {
         },
         tooltip: {
           enabled: true,
+          theme: "dark"
         },
         legend: {
           show: true,
           position: "bottom",
+          labels: {
+            colors: "#BDBDBD",
+          }
         },
         stroke: {
           curve: "straight",

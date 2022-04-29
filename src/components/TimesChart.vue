@@ -59,8 +59,11 @@ export default {
             show: false,
           },
         },
-        yaxis: {
+        yaxis: {          
           labels: {
+            style:{
+              colors: "#BDBDBD",
+            },
             formatter: function (value) {
               return parseFloat(value).toFixed(2) + "h";
             },
@@ -68,10 +71,14 @@ export default {
         },
         tooltip: {
           enabled: true,
+          theme: "dark"
         },
         legend: {
           show: true,
           position: "bottom",
+          labels:{
+            colors: "#BDBDBD",
+          }
         },
         stroke: {
           curve: "straight",

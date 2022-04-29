@@ -15,7 +15,7 @@ function GetValues(data){
                 return x['Microsoft.VSTS.Scheduling.CompletedWork'];
             }
         }).reduce((a,b) => a+b, 0),
-        compliance: (data.filter(x => x['System.State'] === 'Done').length / data.length ) * 100.0
+        compliance: (data.filter(x => x['System.State'] === 'Done').length / (data.length === 0 ? 1: data.length) ) * 100.0
     };
 }
 function getChartIterationValues(data){

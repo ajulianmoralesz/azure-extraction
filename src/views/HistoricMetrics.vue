@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <filters :withIteration="false"/>
-    <v-card flat>
+    <v-card flat color="transparent">
       <v-row align="center" justify="center">
         <v-col>
           <BugsChart />

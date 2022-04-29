@@ -49,10 +49,14 @@ export default {
         labels: this.getLabels(),
         tooltip: {
           enabled: true,
+          theme: "dark"
         },
         legend: {
           show: true,
           position: "bottom",
+          labels:{
+            colors: "#BDBDBD"
+          }
         },
       };
     },
