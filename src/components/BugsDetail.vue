@@ -11,11 +11,11 @@
       <v-row align="center">
         <v-col align="center">
           <p class="text-h2">{{ bugs.bugsCount }}</p>
-          <p>Totales</p>
+          <p class="text-caption">Totales</p>
         </v-col>
         <v-col align="center">
           <p class="text-h2">{{ bugs.openBugsCount }}</p>
-          <p>Abiertos</p>
+          <p class="text-caption">Abiertos</p>
         </v-col>
       </v-row>
     </v-card-text>

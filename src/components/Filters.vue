@@ -84,13 +84,12 @@ export default {
         project: this.project.name,
         team: this.team.name,
         iteration: this.iteration.name,
-      };
-      if (this.pbiReport) {
-        this.$store.dispatch("getPbisIteration", info);
-      } else {
+      };      
+      if (!this.pbiReport) {
         this.$store.dispatch("getBugsIteration", info);
         this.$store.dispatch("getTasksIteration", info);
       }
+      this.$store.dispatch("getPbisIteration", info);
     },
   },
 };

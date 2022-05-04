@@ -3,6 +3,9 @@
     <filters :withIteration="true" />
     <v-card flat align="center" color="transparent">
       <v-row class="my-2" align="center" justify="center">
+        <SprintGoal />
+      </v-row>
+      <v-row class="my-2" align="center" justify="center">
         <BugsDetail />
         <TimesDetail />
         <ComplianceDetail />
@@ -21,8 +24,9 @@ import Filters from "../components/Filters.vue";
 import BugsDetail from "../components/BugsDetail.vue";
 import TimesDetail from "../components/TimesDetail.vue";
 import ComplianceDetail from "../components/ComplianceDetail.vue";
-import UserDetailChart from "../components/UserDetailChart.vue"
+import UserDetailChart from "../components/UserDetailChart.vue";
 import UserComplianceChart from "../components/UserComplianceChart.vue";
+import SprintGoal from "../components/SprintGoal.vue";
 export default {
   name: "IterationMetrics",
   components: {
@@ -31,12 +35,14 @@ export default {
     TimesDetail,
     ComplianceDetail,
     UserDetailChart,
-    UserComplianceChart
+    UserComplianceChart,
+    SprintGoal,
   },
-  mounted(){
-      this.$store.commit('setTasksValues', null);
-      this.$store.commit('setTaskChart', null);
-      this.$store.commit('setBugsValues', null);
+  mounted() {
+    this.$store.commit("setSprintGoal", null);
+    this.$store.commit("setTasksValues", null);
+    this.$store.commit("setTaskChart", null);
+    this.$store.commit("setBugsValues", null);
   },
 };
 </script>

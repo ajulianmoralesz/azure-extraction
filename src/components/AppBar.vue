@@ -10,6 +10,7 @@
             Deus Oculus
           </v-list-item-title>
           <v-list-item-subtitle>Azure Devops</v-list-item-subtitle>
+          <v-list-item-subtitle class="text-caption">0.0.2-alpha</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-list>

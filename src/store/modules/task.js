@@ -32,10 +32,10 @@ const actions = {
   async getTasksIteration(context, info) {
     let TaskResponse = await workitemsService.getTasksIteration(info.project,
       info.team, info.iteration)
-    
+    context.commit('setTasks', TaskResponse);
     context.commit('setTaskChart', taskHelper.getChartIterationValues(TaskResponse));
     context.commit('setTasksValues', taskHelper.GetValues(TaskResponse));
-    context.commit('setTasks', TaskResponse);
+
   }
 }
 

@@ -6,20 +6,20 @@ const state = {
   bugsChart: null,
 };
 const getters = {
-    bugs: state => state.bugs,
-    bugsValues: state => state.bugsValues,
-    bugsChart: state => state.bugsChart,
+  bugs: state => state.bugs,
+  bugsValues: state => state.bugsValues,
+  bugsChart: state => state.bugsChart,
 };
 const mutations = {
   setBugs(state, data) {
     state.bugs = data;
   },
-  setBugsValues(state, data){
-      state.bugsValues =  data;
+  setBugsValues(state, data) {
+    state.bugsValues = data;
   },
-  setBugsChart(state, data){
-    state.bugsChart =  data;
-},
+  setBugsChart(state, data) {
+    state.bugsChart = data;
+  },
 };
 const actions = {
   async getBugs(context, info) {
@@ -29,11 +29,9 @@ const actions = {
   },
   async getBugsIteration(context, info) {
     let bugsResponse = await workitemsService.getBugsIteration(info.project,
-        info.team, info.iteration);
-    context.commit('setBugsValues', bugHelper.GetValues(bugsResponse));
+      info.team, info.iteration);
     context.commit('setBugs', bugsResponse);
-
-
+    context.commit('setBugsValues', bugHelper.GetValues(bugsResponse));
   },
 }
 
